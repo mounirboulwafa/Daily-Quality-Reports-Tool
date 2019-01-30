@@ -1,0 +1,798 @@
+"C:\Program Files\Python37\python.exe" C:/Users/Mounir/Desktop/pdf.py
+
+--------- Page 1 ----------
+Grower:
+200610 Morocco Berry Farms
+Ranch:
+200615 R-Morocco Berry Farm 2
+Country of origin:
+Harvest order:
+HVST-141608
+Quality order:
+IQO-000256385
+Grower receipt:
+RID-102188
+Arrival date / QC check:
+13/1/2019
+Batch number:
+158013158-S-0101
+AWB / OR nr / vehicle nr:
+17
+License plate(s):
+101456145
+Commodity
+Item number
+Product name
+Concept
+Label
+CoO
+Quantity
+Warehouse
+Variety
+Production method
+STRA
+170136
+STRA Conv Drisc 1x1000
+Driscoll's
+Std
+mar
+178.00
+MA MOU
+Marquis
+Ž
+Quantity in KGs:
+178.00
+Final Grading:
+1.1
+Final PFQ score:
+82.50
+Category
+Measurements
+Apparence
+83.33
+Couleur: 3.33%, Oïdium: 0.83%
+Etat
+81.67
+Dégât sec: 3.33%, Fruit saignant: 1.67%
+Brix Level
+100.00
+08.8: 5.00%
+Harvest order:
+HVST-141608
+Quality order:
+IQO-000256366
+Grower receipt:
+RID-000423732
+Arrival date / QC check:
+13/1/2019
+Batch number:
+159013159-S-0102
+AWB / OR nr / vehicle nr:
+18
+License plate(s):
+101456127
+Commodity
+Item number
+Product name
+Concept
+Label
+CoO
+Quantity
+Warehouse
+Variety
+Production method
+STRA
+170136
+STRA Conv Drisc 1x1000
+Driscoll's
+Std
+mar
+100.00
+MA MOU
+Marquis
+Ž
+Quantity in KGs:
+100.00
+Final Grading:
+1.2
+Final PFQ score:
+68.33
+Category
+Measurements
+Apparence
+76.67
+Couleur: 5.83%
+Etat
+60.00
+Dégât sec: 7.50%, Fruit saignant: 2.50%, Rot / Mould <1%: 0.83%
+Brix Level
+100.00
+07.5: 5.00%
+Daily Quality Report
+
+
+--------- Page 2 ----------
+Harvest order:
+HVST-141608
+Quality order:
+IQO-000256367
+Grower receipt:
+RID-000423732
+Arrival date / QC check:
+13/1/2019
+Batch number:
+159013159-S-0101
+AWB / OR nr / vehicle nr:
+18
+License plate(s):
+101454672, 101456124, 101456307
+Commodity
+Item number
+Product name
+Concept
+Label
+CoO
+Quantity
+Warehouse
+Variety
+Production method
+STRA
+170134
+STRA Conv Drisc 12x400
+Driscoll's
+StdVlb
+MAR
+27.00
+MA MOU
+Marquis
+Ž
+Quantity in KGs:
+129.60
+Final Grading:
+1.2
+Final PFQ score:
+69.44
+Category
+Measurements
+Apparence
+77.78
+Couleur: 5.56%
+Etat
+61.11
+Dégât sec: 6.48%, Fruit saignant: 2.78%, Rot / Mould <1%: 0.93%
+Brix Level
+100.00
+07.5: 5.56%
+Harvest order:
+HVST-141606
+Quality order:
+IQO-000256363
+Grower receipt:
+RID-000423730
+Arrival date / QC check:
+13/1/2019
+Batch number:
+160013160-S-0102
+AWB / OR nr / vehicle nr:
+18
+License plate(s):
+101456117
+Commodity
+Item number
+Product name
+Concept
+Label
+CoO
+Quantity
+Warehouse
+Variety
+Production method
+STRA
+170136
+STRA Conv Drisc 1x1000
+Driscoll's
+Std
+mar
+100.00
+MA MOU
+Marquis
+Ž
+Quantity in KGs:
+100.00
+Final Grading:
+1.1
+Final PFQ score:
+81.67
+Category
+Measurements
+Apparence
+80.00
+Calice: 2.50%, Couleur: 2.50%
+Etat
+83.33
+Dégât sec: 4.17%, Fruit saignant: 0.83%
+Brix Level
+100.00
+08.6: 5.00%
+Daily Quality Report
+
+
+--------- Page 3 ----------
+Harvest order:
+HVST-141606
+Quality order:
+IQO-000256364
+Grower receipt:
+RID-000423730
+Arrival date / QC check:
+13/1/2019
+Batch number:
+160013160-S-0101
+AWB / OR nr / vehicle nr:
+18
+License plate(s):
+101454672, 101456116
+Commodity
+Item number
+Product name
+Concept
+Label
+CoO
+Quantity
+Warehouse
+Variety
+Production method
+STRA
+170134
+STRA Conv Drisc 12x400
+Driscoll's
+StdVlb
+MAR
+11.00
+MA MOU
+Marquis
+Ž
+Quantity in KGs:
+52.80
+Final Grading:
+1.1
+Final PFQ score:
+82.50
+Category
+Measurements
+Apparence
+80.00
+Couleur: 5.00%
+Etat
+85.00
+Dégât sec: 5.00%
+Brix Level
+100.00
+08.6: 15.00%
+Harvest order:
+HVST-141606
+Quality order:
+IQO-000256370
+Grower receipt:
+RID-102186
+Arrival date / QC check:
+13/1/2019
+Batch number:
+140013140-S-0103
+AWB / OR nr / vehicle nr:
+16
+License plate(s):
+101456134, 101456922
+Commodity
+Item number
+Product name
+Concept
+Label
+CoO
+Quantity
+Warehouse
+Variety
+Production method
+STRA
+170134
+STRA Conv Drisc 12x400
+Driscoll's
+StdSp
+MAR
+26.00
+MA MOU
+Marquis
+Ž
+Quantity in KGs:
+124.80
+Final Grading:
+1.1
+Final PFQ score:
+82.69
+Category
+Measurements
+Apparence
+84.62
+Couleur: 3.85%
+Etat
+80.77
+Dégât sec: 6.41%
+Brix Level
+100.00
+09.4: 7.69%
+Daily Quality Report
+
+
+--------- Page 4 ----------
+Harvest order:
+HVST-141606
+Quality order:
+IQO-000256652
+Grower receipt:
+RID-102339
+Arrival date / QC check:
+13/1/2019
+Batch number:
+140013140-R-0201
+AWB / OR nr / vehicle nr:
+15
+License plate(s):
+101457145, 101457280
+Commodity
+Item number
+Product name
+Concept
+Label
+CoO
+Quantity
+Warehouse
+Variety
+Production method
+RASP
+170090
+RASP Conv Drisc 12x125
+Driscoll's
+StdLc1
+MAR
+30.00
+MA MOU
+Carmina
+Ž
+Quantity in KGs:
+45.00
+Final Grading:
+1.1
+Final PFQ score:
+85.20
+Category
+Measurements
+Apparence
+77.55
+Immature: 2.04%, Cassé / Déformation: 2.04%
+Etat
+92.86
+Fruit saignant: 1.02%
+Harvest order:
+HVST-141608
+Quality order:
+IQO-000256647
+Grower receipt:
+RID-102307
+Arrival date / QC check:
+13/1/2019
+Batch number:
+160013160-R-0101
+AWB / OR nr / vehicle nr:
+15
+License plate(s):
+101457145, 101457193
+Commodity
+Item number
+Product name
+Concept
+Label
+CoO
+Quantity
+Warehouse
+Variety
+Production method
+RASP
+170090
+RASP Conv Drisc 12x125
+Driscoll's
+StdLc1
+MAR
+53.00
+MA MOU
+Carmina
+Ž
+Quantity in KGs:
+79.50
+Final Grading:
+1.1
+Final PFQ score:
+80.50
+Category
+Measurements
+Apparence
+61.00
+Immature: 5.00%, Cassé / Déformation: 1.00%
+Etat
+100.00
+Daily Quality Report
+
+
+--------- Page 5 ----------
+Harvest order:
+HVST-141606
+Quality order:
+IQO-000256650
+Grower receipt:
+RID-102190
+Arrival date / QC check:
+13/1/2019
+Batch number:
+140013140-S-0104
+AWB / OR nr / vehicle nr:
+15
+License plate(s):
+101457191, 101457199, 101457289
+Commodity
+Item number
+Product name
+Concept
+Label
+CoO
+Quantity
+Warehouse
+Variety
+Production method
+STRA
+170134
+STRA Conv Drisc 12x400
+Driscoll's
+Std
+mar
+14.00
+MA MOU
+Marquis
+Ž
+Quantity in KGs:
+67.20
+Final Grading:
+1.1
+Final PFQ score:
+82.35
+Category
+Measurements
+Apparence
+82.35
+Couleur: 2.94%, Déformation: 1.47%
+Etat
+82.35
+Dégât sec: 5.88%
+Brix Level
+100.00
+09.4: 8.82%
+Harvest order:
+HVST-141606
+Quality order:
+IQO-000256655
+Grower receipt:
+RID-102341
+Arrival date / QC check:
+13/1/2019
+Batch number:
+158013158-S-0103
+AWB / OR nr / vehicle nr:
+15
+License plate(s):
+101456145, 101457290
+Commodity
+Item number
+Product name
+Concept
+Label
+CoO
+Quantity
+Warehouse
+Variety
+Production method
+STRA
+170136
+STRA Conv Drisc 1x1000
+Driscoll's
+Std
+mar
+72.00
+MA MOU
+Marquis
+Ž
+Quantity in KGs:
+72.00
+Final Grading:
+1.1
+Final PFQ score:
+80.26
+Category
+Measurements
+Apparence
+89.47
+Couleur: 2.63%
+Etat
+71.05
+Fruit saignant: 2.63%, Dégât sec: 5.26%
+Brix Level
+100.00
+08.8: 5.26%
+Daily Quality Report
+
+
+--------- Page 6 ----------
+Harvest order:
+HVST-141606
+Quality order:
+IQO-000256656
+Grower receipt:
+RID-102341
+Arrival date / QC check:
+13/1/2019
+Batch number:
+158013158-S-0102
+AWB / OR nr / vehicle nr:
+15
+License plate(s):
+101457289
+Commodity
+Item number
+Product name
+Concept
+Label
+CoO
+Quantity
+Warehouse
+Variety
+Production method
+STRA
+170134
+STRA Conv Drisc 12x400
+Driscoll's
+Std
+mar
+36.00
+MA MOU
+Marquis
+Ž
+Quantity in KGs:
+172.80
+Final Grading:
+1.1
+Final PFQ score:
+79.76
+Category
+Measurements
+Apparence
+76.19
+Couleur: 3.57%, Déformation: 1.19%, Calibre <28 mm: 1.19%
+Etat
+83.33
+Fruit saignant: 1.19%, Dégât sec: 3.57%
+Brix Level
+100.00
+08.8: 7.14%
+Harvest order:
+HVST-141608
+Quality order:
+IQO-000256576
+Grower receipt:
+RID-102200
+Arrival date / QC check:
+13/1/2019
+Batch number:
+159013159-S-0105
+AWB / OR nr / vehicle nr:
+15
+License plate(s):
+101457032
+Commodity
+Item number
+Product name
+Concept
+Label
+CoO
+Quantity
+Warehouse
+Variety
+Production method
+STRA
+170134
+STRA Conv Drisc 12x400
+Driscoll's
+StdSp
+MAR
+33.00
+MA MOU
+Marquis
+Ž
+Quantity in KGs:
+158.40
+Final Grading:
+1.1
+Final PFQ score:
+80.50
+Category
+Measurements
+Apparence
+84.00
+Couleur: 3.00%, Calice: 1.00%
+Etat
+77.00
+Fruit saignant: 1.00%, Dégât sec: 6.00%
+Brix Level
+100.00
+07.5: 6.00%
+Daily Quality Report
+
+
+--------- Page 7 ----------
+Harvest order:
+HVST-141608
+Quality order:
+IQO-000256574
+Grower receipt:
+RID-102200
+Arrival date / QC check:
+13/1/2019
+Batch number:
+159013159-S-0104
+AWB / OR nr / vehicle nr:
+15
+License plate(s):
+101455053, 101457030
+Commodity
+Item number
+Product name
+Concept
+Label
+CoO
+Quantity
+Warehouse
+Variety
+Production method
+STRA
+170134
+STRA Conv Drisc 12x400
+Driscoll's
+Std
+mar
+1.00
+MA MOU
+Marquis
+Ž
+Quantity in KGs:
+4.80
+Final Grading:
+1.1
+Final PFQ score:
+81.25
+Category
+Measurements
+Apparence
+75.00
+Calice: 4.17%, Dégâts de ravageurs: 2.08%
+Etat
+87.50
+Dégât sec: 4.17%
+Brix Level
+100.00
+07.5: 12.50%
+Harvest order:
+HVST-141608
+Quality order:
+IQO-000256575
+Grower receipt:
+RID-102200
+Arrival date / QC check:
+13/1/2019
+Batch number:
+159013159-S-0103
+AWB / OR nr / vehicle nr:
+15
+License plate(s):
+101456307, 101457029
+Commodity
+Item number
+Product name
+Concept
+Label
+CoO
+Quantity
+Warehouse
+Variety
+Production method
+STRA
+170134
+STRA Conv Drisc 12x400
+Driscoll's
+StdVlb
+MAR
+16.00
+MA MOU
+Marquis
+Ž
+Quantity in KGs:
+76.80
+Final Grading:
+1.1
+Final PFQ score:
+81.67
+Category
+Measurements
+Apparence
+82.22
+Couleur: 3.33%, Dégâts de ravageurs: 1.11%
+Etat
+81.11
+Dégât sec: 4.44%, Fruit saignant: 1.11%
+Brix Level
+100.00
+07.5: 6.67%
+Daily Quality Report
+
+
+--------- Page 8 ----------
+Harvest order:
+HVST-141608
+Quality order:
+IQO-000256648
+Grower receipt:
+RID-102307
+Arrival date / QC check:
+13/1/2019
+Batch number:
+160013160-S-0103
+AWB / OR nr / vehicle nr:
+15
+License plate(s):
+101457191
+Commodity
+Item number
+Product name
+Concept
+Label
+CoO
+Quantity
+Warehouse
+Variety
+Production method
+STRA
+170134
+STRA Conv Drisc 12x400
+Driscoll's
+Std
+mar
+55.00
+MA MOU
+Marquis
+Ž
+Quantity in KGs:
+264.00
+Final Grading:
+1.2
+Final PFQ score:
+67.41
+Category
+Measurements
+Apparence
+82.14
+Couleur: 4.46%
+Etat
+52.68
+Dégât sec: 8.04%, Rot / Mould <1%: 0.89%, Fruit saignant: 3.57%
+Brix Level
+100.00
+08.6: 5.36%
+Daily Quality Report
+
+
+Process finished with exit code 0
