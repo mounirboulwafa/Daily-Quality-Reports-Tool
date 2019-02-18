@@ -54,7 +54,7 @@ def show_about():
     win.geometry("400x200")
     win.resizable(0, 0)
 
-    title = tkinter.Label(win, text="ATLAS BERRY FARMS\nDaily Quality Reports Tool v1.0",
+    title = tkinter.Label(win, text="ATLAS BERRY FARMS\nDaily Quality Reports Tool v1.1",
                           fg="chartreuse4", font="Helvetica 12 bold")
     title.pack(ipadx=80, ipady=20, fill='both')
 
@@ -77,8 +77,8 @@ def show_processing_end():
 
 
 def show_processing_error():
-    messagebox.showwarning(" Error", " Process could not be completed !\n"
-                                     " The Excel file is already open ! ")
+    messagebox.showwarning(" Error : Process could not be completed !", " Maybe The Excel file is already open ! \n\n"
+                                                                        "Or contact the developer to fix the bug !!")
 
 
 logo = tkinter.PhotoImage(file="img\\logo.png")
@@ -329,7 +329,7 @@ def load_pdf():
                     groupNum = groupNum + 1
                     # print(match.group(groupNum))
                     if match.group(groupNum) is not None:
-                        val = str(match.group(groupNum).rstrip())
+                        val = str(match.group(groupNum).rstrip().replace(',', ''))  # Fix the "," problem
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
                             w_sheet.write(n5 + 6, 4, float(val))
@@ -354,7 +354,7 @@ def load_pdf():
                     groupNum = groupNum + 1
                     # print(match.group(groupNum))
                     if match.group(groupNum) is not None:
-                        val = str(match.group(groupNum).rstrip().replace(',', ''))
+                        val = str(match.group(groupNum).rstrip().replace(',', ''))  # Fix the "," problem
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
                             w_sheet.write(n7 + 6, 6, float(val))
