@@ -222,8 +222,8 @@ def load_pdf():
             BatchNumber_Regex = r"Batch number:.*\n.*(.{8}).{2}|Numéro de Lot:.*\n.*(.{8}).{2}"
 
             ItemNumber_Regex = r"Production method.*\n.*.*\n(.*)|Méthode de Production.*\n.*.*\n(.*)"
-            Quantity_Regex = r"(.*\n.*)MA MOU|(.*\n.*)MA DAC"
-            Variety_Regex = r"MA MOU.*\n(.*)|MA DAC.*\n(.*)"
+            Quantity_Regex = r"(.*\n.*)MA MOU|(.*\n.*)MA DAC|(.*\n.*)MA LAR"
+            Variety_Regex = r"MA MOU.*\n(.*)|MA DAC.*\n(.*)|MA LAR.*\n(.*)"
 
             KG_Regex = r"Quantity in KGs:.*\n(.*)|Quantité en KG:.*\n(.*)"
             Grading_Regex = r"Final Grading:.*\n(.*)|Classification  finale:.*\n(.*)"
