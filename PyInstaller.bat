@@ -1,0 +1,1 @@
+pyinstaller -F -w -i="img\icon2.ico" "Daily Quality Reports Tool v1.2.py"

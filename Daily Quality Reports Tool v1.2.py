@@ -54,7 +54,7 @@ def show_about():
     win.geometry("400x200")
     win.resizable(0, 0)
 
-    title = tkinter.Label(win, text="ATLAS BERRY FARMS\nDaily Quality Reports Tool v1.1",
+    title = tkinter.Label(win, text="ATLAS BERRY FARMS\nDaily Quality Reports Tool v1.2",
                           fg="chartreuse4", font="Helvetica 12 bold")
     title.pack(ipadx=80, ipady=20, fill='both')
 
