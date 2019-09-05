@@ -178,7 +178,7 @@ def load_pdf():
 
             w_sheet.col(0).width = 5000
             w_sheet.col(1).width = 4000
-            w_sheet.col(2).width = 4000
+            w_sheet.col(2).width = 6000
             w_sheet.col(3).width = 6400
             w_sheet.col(4).width = 4000
             w_sheet.col(5).width = 4000
@@ -219,7 +219,7 @@ def load_pdf():
             GrowerReceipt_Regex = r"Grower receipt:.*\n(.*)|Bon de réception:.*\n(.*)"
             # GrowerReceipt_Regex = r"Grower receipt:.*\n(.*)|(.*\n.*)Date de reception"
             QC_Regex = r"QC check:.*\n(.*)|Contrôle qualité:.*\n(.*)"
-            BatchNumber_Regex = r"Batch number:.*\n.*(.{8}).{2}|Numéro de Lot:.*\n.*(.{8}).{2}"
+            BatchNumber_Regex = r"Batch number:.*\n(.*)|Numéro de Lot:.*\n(.*)"
 
             ItemNumber_Regex = r"Production method.*\n.*.*\n(.*)|Méthode de Production.*\n.*.*\n(.*)"
             Quantity_Regex = r"(.*\n.*)MA MOU|(.*\n.*)MA DAC|(.*\n.*)MA LAR"

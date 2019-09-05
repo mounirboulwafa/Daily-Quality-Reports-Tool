@@ -4,7 +4,6 @@
     <list default="true" id="8d3c8177-c823-4950-8a57-775f30a4d7d9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Daily Quality Reports Tool v1.2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Daily Quality Reports Tool v1.2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1.1/Daily Quality Reports Tool v1.1 Setup.exe" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Daily_Quality_Reports_Tool$Daily_Quality_Reports_Tool_v1_2.coverage" NAME="Daily Quality Reports Tool v1.2 Coverage Results" MODIFIED="1551772785430" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Daily_Quality_Reports_Tool$Daily_Quality_Reports_Tool_v1_2.coverage" NAME="Daily Quality Reports Tool v1.2 Coverage Results" MODIFIED="1553591455663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Daily_Quality_Reports_Tool$Daily_Quality_Reports_Tool_vF.coverage" NAME="Daily Quality Reports Tool vF Coverage Results" MODIFIED="1551655434345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Daily_Quality_Reports_Tool$Daily_Quality_Reports_Tool_v1_1.coverage" NAME="Daily Quality Reports Tool v1.1 Coverage Results" MODIFIED="1551655590377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
@@ -22,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Daily Quality Reports Tool v1.2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-13">
-              <caret line="53" column="27" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
+            <state relative-caret-position="429">
+              <caret line="183" column="37" selection-start-line="183" selection-start-column="37" selection-end-line="183" selection-end-column="37" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -62,6 +61,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -73,11 +73,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/v1.3" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
@@ -108,7 +109,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Mounir\PycharmProjects\Daily_Quality_Reports_Tool\Daily Quality Reports Tool v1.2.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Mounir\PycharmProjects\Daily_Quality_Reports_Tool\Daily Quality Reports Tool.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -130,7 +131,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Daily Quality Reports Tool v1.2.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Mounir\PycharmProjects\Daily_Quality_Reports_Tool\Daily Quality Reports Tool.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,7 +188,9 @@
       <workItem from="1550485155114" duration="3918000" />
       <workItem from="1550602020181" duration="97000" />
       <workItem from="1551655042490" duration="1173000" />
-      <workItem from="1551772494400" duration="1201000" />
+      <workItem from="1551772494400" duration="1633000" />
+      <workItem from="1553591429153" duration="60000" />
+      <workItem from="1567722930010" duration="580000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1548619103844</created>
@@ -245,11 +248,18 @@
       <option name="project" value="LOCAL" />
       <updated>1551656013057</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Deploy v1.2">
+      <created>1551773736838</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1551773736838</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10553000" />
+    <option name="totallyTimeSpent" value="11625000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -261,15 +271,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19932885" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20576407" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.7026846" visible="true" weight="0.1756374" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.7013423" visible="true" weight="0.042432815" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -277,8 +287,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49731544" weight="0.18130311" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.29798657" side_tool="true" weight="0.5042493" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.29865772" side_tool="true" weight="0.5042493" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3281471" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -337,7 +347,11 @@
     <MESSAGE value="Fix comma &quot;,&quot; bug" />
     <MESSAGE value="Fix Comma Bug v1.1" />
     <MESSAGE value="Add LAR Warehouse v1.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add LAR Warehouse v1.2" />
+    <MESSAGE value="Deploy v1.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deploy v1.2" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Daily_Quality_Reports_Tool$Daily_Quality_Reports_Tool_v1_2.coverage" NAME="Daily Quality Reports Tool v1.2 Coverage Results" MODIFIED="1567723570730" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -351,8 +365,8 @@
     <entry file="file://$PROJECT_DIR$/Daily Quality Reports Tool vF.py" />
     <entry file="file://$PROJECT_DIR$/Daily Quality Reports Tool v1.2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13">
-          <caret line="53" column="27" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
+        <state relative-caret-position="429">
+          <caret line="183" column="37" selection-start-line="183" selection-start-column="37" selection-end-line="183" selection-end-column="37" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
