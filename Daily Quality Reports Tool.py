@@ -161,30 +161,35 @@ def load_pdf():
 
             # w_sheet.write(0, 3, 'Daily Quality Report', style)
             w_sheet.write_merge(0, 0, 3, 4, 'Daily Quality Report', style1)
-            w_sheet.write(2, 3, 'Grower', style)
-            w_sheet.write(2, 4, 'Ranch', style)
             w_sheet.write(5, 0, 'Grower receipt', style)
             w_sheet.write(5, 1, 'Item number', style)
-            w_sheet.write(5, 2, 'Batch number', style)
-            w_sheet.write(5, 3, 'Arrival date / QC check', style)
-            w_sheet.write(5, 4, 'Quantity', style)
-            w_sheet.write(5, 5, 'Variety', style)
-            w_sheet.write(5, 6, 'Quantity in KGs', style)
-            w_sheet.write(5, 7, 'Final Grading', style)
-            w_sheet.write(5, 8, 'Final PFQ score', style)
+            w_sheet.write(5, 2, 'Id Bloc', style)
+            w_sheet.write(5, 3, 'Batch number', style)
+            w_sheet.write(5, 4, 'Arrival date / QC check', style)
+            w_sheet.write(5, 5, 'Quantity', style)
+            w_sheet.write(5, 6, 'Variety', style)
+            w_sheet.write(5, 7, 'Quantity in KGs', style)
+            w_sheet.write(5, 8, 'Final Grading', style)
+            w_sheet.write(5, 9, 'Final PFQ score', style)
+            w_sheet.write(5, 10, 'Grower', style)
+            w_sheet.write(5, 11, 'Ranch', style)
 
             #######################
             # Styling ( Column width )
 
             w_sheet.col(0).width = 5000
             w_sheet.col(1).width = 4000
-            w_sheet.col(2).width = 6000
+            w_sheet.col(2).width = 4000
             w_sheet.col(3).width = 6400
-            w_sheet.col(4).width = 4000
+            w_sheet.col(4).width = 6400
             w_sheet.col(5).width = 4000
             w_sheet.col(6).width = 4800
             w_sheet.col(7).width = 4500
             w_sheet.col(8).width = 4800
+            w_sheet.col(9).width = 4800
+            w_sheet.col(10).width = 4800
+            w_sheet.col(11).width = 4800
+
 
             wb.save(excelFile)
 
@@ -203,6 +208,7 @@ def load_pdf():
         n7 = 0
         n8 = 0
         n9 = 0
+        n10 = 0
 
         for x in range(0, pages):
             # print("\n--------- Page " + str(x + 1) + " ----------")
@@ -213,21 +219,18 @@ def load_pdf():
             ######################
             #  RegExpressions
 
-            Grower_Regex = r"Grower:.*\n(\w+)|Producteur:.*\n(\w+)"
-            Ranch_Regex = r"Ranch:.*\n(\w+)|Ferme:.*\n(\w+)"
-
             GrowerReceipt_Regex = r"Grower receipt:.*\n(.*)|Bon de réception:.*\n(.*)"
-            # GrowerReceipt_Regex = r"Grower receipt:.*\n(.*)|(.*\n.*)Date de reception"
-            QC_Regex = r"QC check:.*\n(.*)|Contrôle qualité:.*\n(.*)"
-            BatchNumber_Regex = r"Batch number:.*\n(.*)|Numéro de Lot:.*\n(.*)"
-
             ItemNumber_Regex = r"Production method.*\n.*.*\n(.*)|Méthode de Production.*\n.*.*\n(.*)"
+            IdBloc_Regex = r"Batch number:.*\n.*(.{8}).{2}|Numéro de Lot:.*\n.*(.{8}).{2}"
+            BatchNumber_Regex = r"Batch number:.*\n(.*)|Numéro de Lot:.*\n(.*)"
+            QC_Regex = r"QC check:.*\n(.*)|Contrôle qualité:.*\n(.*)"
             Quantity_Regex = r"(.*\n.*)MA MOU|(.*\n.*)MA DAC|(.*\n.*)MA LAR"
             Variety_Regex = r"MA MOU.*\n(.*)|MA DAC.*\n(.*)|MA LAR.*\n(.*)"
-
             KG_Regex = r"Quantity in KGs:.*\n(.*)|Quantité en KG:.*\n(.*)"
             Grading_Regex = r"Final Grading:.*\n(.*)|Classification  finale:.*\n(.*)"
             PFQ_score_Regex = r"Final PFQ score:.*\n(.*)|Score PFQ final:.*\n(.*)"
+            Grower_Regex = r"Grower:.*\n(\w+)|Producteur:.*\n(\w+)"
+            Ranch_Regex = r"Ranch:.*\n(\w+)|Ferme:.*\n(\w+)"
 
             ######################
             #
@@ -237,8 +240,8 @@ def load_pdf():
 
             GrowerReceipts = re.finditer(GrowerReceipt_Regex, text)
             QCs = re.finditer(QC_Regex, text)
+            IdBlocs = re.finditer(IdBloc_Regex, text)
             BatchNumbers = re.finditer(BatchNumber_Regex, text)
-            # print(BatchNumbers)
 
             ItemNumbers = re.finditer(ItemNumber_Regex, text)
             Quantities = re.finditer(Quantity_Regex, text)
@@ -252,27 +255,27 @@ def load_pdf():
             #
 
             n = 0
-            for matchNum, match in enumerate(Growers, start=1):
-                for groupNum in range(0, len(match.groups())):
-                    groupNum = groupNum + 1
-                    # print(match.group(groupNum))
-                    # w_sheet.write(2, 4, int(match.group(groupNum)))
-                    if match.group(groupNum) is not None:
-                        val = str(match.group(groupNum).rstrip())
-                        if val is not None:
-                            # print(str("---") + val + str(" 00"))
-                            w_sheet.write(3, 3, int(val))
-
-            for matchNum, match in enumerate(Ranches, start=1):
-                for groupNum in range(0, len(match.groups())):
-                    groupNum = groupNum + 1
-                    # print(match.group(groupNum))
-                    # w_sheet.write(3, 4, int(match.group(groupNum)))
-                    if match.group(groupNum) is not None:
-                        val = str(match.group(groupNum).rstrip())
-                        if val is not None:
-                            # print(str("---") + val + str(" 00"))
-                            w_sheet.write(3, 4, int(val))
+            # for matchNum, match in enumerate(Growers, start=1):
+            #     for groupNum in range(0, len(match.groups())):
+            #         groupNum = groupNum + 1
+            #         # print(match.group(groupNum))
+            #         # w_sheet.write(2, 4, int(match.group(groupNum)))
+            #         if match.group(groupNum) is not None:
+            #             val = str(match.group(groupNum).rstrip())
+            #             if val is not None:
+            #                 # print(str("---") + val + str(" 00"))
+            #                 w_sheet.write(3, 3, int(val))
+            #
+            # for matchNum, match in enumerate(Ranches, start=1):
+            #     for groupNum in range(0, len(match.groups())):
+            #         groupNum = groupNum + 1
+            #         # print(match.group(groupNum))
+            #         # w_sheet.write(3, 4, int(match.group(groupNum)))
+            #         if match.group(groupNum) is not None:
+            #             val = str(match.group(groupNum).rstrip())
+            #             if val is not None:
+            #                 # print(str("---") + val + str(" 00"))
+            #                 w_sheet.write(3, 4, int(val))
 
             n1 = n + n1
             for matchNum, match in enumerate(GrowerReceipts, start=1):
@@ -295,11 +298,26 @@ def load_pdf():
                         val = str(match.group(groupNum).rstrip())
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
-                            w_sheet.write(n2 + 6, 3, val)
+                            w_sheet.write(n2 + 6, 4, val)
                 n2 += 1
 
-            n3 = n + n3
+
+            n10 = n + n10
             for matchNum, match in enumerate(BatchNumbers, start=1):
+                # print("111111111")
+                for groupNum in range(0, len(match.groups())):
+                    groupNum = groupNum + 1
+                    # print(match.group(groupNum))
+                    if match.group(groupNum) is not None:
+                        val = str(match.group(groupNum).rstrip())
+                        if val is not None:
+                            # print(str("---") + val + str(" 00"))
+                            w_sheet.write(n10 + 6, 3, val)
+                n10 += 1
+
+
+            n3 = n + n3
+            for matchNum, match in enumerate(IdBlocs, start=1):
                 # print("111111111")
                 for groupNum in range(0, len(match.groups())):
                     groupNum = groupNum + 1
@@ -332,7 +350,7 @@ def load_pdf():
                         val = str(match.group(groupNum).rstrip().replace(',', ''))  # Fix the "," problem
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
-                            w_sheet.write(n5 + 6, 4, float(val))
+                            w_sheet.write(n5 + 6, 5, float(val))
                 n5 += 1
 
             n6 = n + n6
@@ -344,7 +362,7 @@ def load_pdf():
                         val = str(match.group(groupNum).rstrip())
                         if val is not '':
                             # print(str("---") + val + str(" 00"))
-                            w_sheet.write(n6 + 6, 5, val)
+                            w_sheet.write(n6 + 6, 6, val)
                     # w_sheet.write(n6 + 6, 5, match.group(groupNum))
                 n6 += 1
 
@@ -357,7 +375,7 @@ def load_pdf():
                         val = str(match.group(groupNum).rstrip().replace(',', ''))  # Fix the "," problem
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
-                            w_sheet.write(n7 + 6, 6, float(val))
+                            w_sheet.write(n7 + 6, 7, float(val))
                 n7 += 1
 
             n8 = n + n8
@@ -369,7 +387,7 @@ def load_pdf():
                         val = str(match.group(groupNum).rstrip())
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
-                            w_sheet.write(n8 + 6, 7, val)
+                            w_sheet.write(n8 + 6, 8, val)
                 n8 += 1
 
             n9 = n + n9
@@ -381,7 +399,7 @@ def load_pdf():
                         val = str(match.group(groupNum).rstrip())
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
-                            w_sheet.write(n9 + 6, 8, float(val))
+                            w_sheet.write(n9 + 6, 9, float(val))
                 n9 += 1
 
             n += 2
