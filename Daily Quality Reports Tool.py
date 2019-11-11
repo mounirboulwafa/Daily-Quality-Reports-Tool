@@ -180,18 +180,18 @@ def load_pdf():
             #######################
             # Styling ( Column width )
 
-            w_sheet.col(0).width = 4500
+            w_sheet.col(0).width = 4200
             w_sheet.col(1).width = 4000
-            w_sheet.col(2).width = 4000
-            w_sheet.col(3).width = 6400
+            w_sheet.col(2).width = 3000
+            w_sheet.col(3).width = 6000
             w_sheet.col(4).width = 6400
-            w_sheet.col(5).width = 4000
-            w_sheet.col(6).width = 4800
+            w_sheet.col(5).width = 3400
+            w_sheet.col(6).width = 3300
             w_sheet.col(7).width = 4500
-            w_sheet.col(8).width = 4800
+            w_sheet.col(8).width = 4000
             w_sheet.col(9).width = 4800
-            w_sheet.col(10).width = 4800
-            w_sheet.col(11).width = 4800
+            w_sheet.col(10).width = 3000
+            w_sheet.col(11).width = 3000
 
 
             wb.save(excelFile)
