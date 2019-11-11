@@ -11,7 +11,6 @@ from tkinter import filedialog
 from tkinter import messagebox
 from tkinter import *
 from os import path
-import datetime
 
 #######################
 # Open file Dialog to choose the PDF Document
@@ -97,7 +96,7 @@ title_label = tkinter.Label(window, text="Daily Quality Reports Tool",
 space = tkinter.Label(window, height=2, ).pack()
 
 myPDF = None
-excelFile = ""
+excel_file = ""
 
 #######################
 # styles
@@ -113,7 +112,7 @@ style = xlwt.easyxf(
     'align: horiz center')
 
 
-def delete_worksheet(w_sheet):
+def delete_worksheet_content(w_sheet):
     # w_sheet.write(3, 3, "")
     # w_sheet.write(4, 3, "")
     for x in range(0, 11):
@@ -156,7 +155,7 @@ def write_headers(w_sheet):
 
 
 def load_pdf():
-    myPDF = filedialog.askopenfilename(initialdir="C:\\Users\\" + str(os.getlogin()) + " \\Desktop",
+    my_pdf = filedialog.askopenfilename(initialdir="C:\\Users\\" + str(os.getlogin()) + " \\Desktop",
                                        title=" Select file",
                                        filetypes=(("PDF Documents", "*.pdf"), ("all files", "*.*")))
 
@@ -166,30 +165,27 @@ def load_pdf():
     # Read the PDF Document
 
     try:
-        pdfFileObj = open(myPDF, 'rb')
+        pdf_file_obj = open(my_pdf, 'rb')
         # pdfFileObj = open('pdf.pdf', 'rb')
-        pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
-        pages = pdfReader.numPages
+        pdf_reader = PyPDF2.PdfFileReader(pdf_file_obj)
+        pages = pdf_reader.numPages
 
         #######################
         # Save the Data As Excel File
 
-        excelFile = str(myPDF).replace('.pdf', '.xls')
-        # print("1111" + str(excelFile))
+        excel_file = str(my_pdf).replace('.pdf', '.xls')
+        # print("1111" + str(excel_file))
 
         #######################
         # Create the Excel File
 
         # if the Excel file exist : update
-        if path.exists(excelFile):
-            rb = xlrd.open_workbook(excelFile, formatting_info=1)
+        if path.exists(excel_file):
+            rb = xlrd.open_workbook(excel_file, formatting_info=1)
             wb = copy(rb)
             w_sheet = wb.get_sheet(0)
-            #
-            # vaaaa = w_sheet.sheet_names()
-            # print("000000" + str(vaaaa))
 
-            delete_worksheet(w_sheet)
+            delete_worksheet_content(w_sheet)
             # print("File Updated")
 
         # if the Excel file doesn't exist : create new one
@@ -199,205 +195,217 @@ def load_pdf():
 
             write_headers(w_sheet)
 
-            wb.save(excelFile)
+            wb.save(excel_file)
 
-        ###################
+        ############################################################################
         # start processing
 
         # Inserting the logo
         # w_sheet.insert_bitmap('img\\logo.bmp', 0, 0, 2, 2)
 
-        n1, n2, n3, n4, n5, n6, n7, n8, n9, n10 = 0
+        n1 = 0
+        n2 = 0
+        n3 = 0
+        n4 = 0
+        n5 = 0
+        n6 = 0
+        n7 = 0
+        n8 = 0
+        n9 = 0
+        n10 = 0
 
-        # Reading GrowerReceipt & Ranche
+        # Reading Grower & Ranche
 
-        pageObj = pdfReader.getPage(0)
-        pageOne = pageObj.extractText()
+        grower_val = NONE
+        ranch_val = NONE
+
+        page_obj = pdf_reader.getPage(0)
+        page_one = page_obj.extractText()
         # print(pageOne)
 
-        Grower_Regex = r"Grower:.*\n(\w+)|Producteur:.*\n(\w+)"
-        Ranch_Regex = r"Ranch:.*\n(\w+)|Ferme:.*\n(\w+)"
+        grower_regex = r"Grower:.*\n(\w+)|Producteur:.*\n(\w+)"
+        growers = re.finditer(grower_regex, page_one)
 
-        Growers = re.finditer(Grower_Regex, pageOne)
-        Ranches = re.finditer(Ranch_Regex, pageOne)
+        ranch_regex = r"Ranch:.*\n(\w+)|Ferme:.*\n(\w+)"
+        ranches = re.finditer(ranch_regex, page_one)
 
-        for matchNum, match in enumerate(Growers, start=1):
-            for groupNum in range(0, len(match.groups())):
-                groupNum = groupNum + 1
-                if match.group(groupNum) is not None:
-                    Grower_val = int(match.group(groupNum))
+        for match_num, match in enumerate(growers, start=1):
+            for group_num in range(0, len(match.groups())):
+                group_num = group_num + 1
+                if match.group(group_num) is not None:
+                    grower_val = int(match.group(group_num))
 
-        for matchNum, match in enumerate(Ranches, start=1):
-            for groupNum in range(0, len(match.groups())):
-                groupNum = groupNum + 1
-                if match.group(groupNum) is not None:
-                    Ranche_val = int(match.group(groupNum))
+        for match_num, match in enumerate(ranches, start=1):
+            for group_num in range(0, len(match.groups())):
+                group_num = group_num + 1
+                if match.group(group_num) is not None:
+                    ranch_val = int(match.group(group_num))
 
         # print(Grower_val)
         # print(Ranche_val)
 
         for x in range(0, pages):
             # print("\n--------- Page " + str(x + 1) + " ----------")
-            pageObj = pdfReader.getPage(x)
-            text = pageObj.extractText()
+            page_obj = pdf_reader.getPage(x)
+            text = page_obj.extractText()
             # print(text)
 
             ######################
             #  RegExpressions
 
-            GrowerReceipt_Regex = r"Grower receipt:.*\n(.*)|Bon de réception:.*\n(.*)"
-            ItemNumber_Regex = r"Production method.*\n.*.*\n(.*)|Méthode de Production.*\n.*.*\n(.*)"
-            IdBloc_Regex = r"Batch number:.*\n.*(.{8}).{2}|Numéro de Lot:.*\n.*(.{8}).{2}"
-            BatchNumber_Regex = r"Batch number:.*\n(.*)|Numéro de Lot:.*\n(.*)"
-            QC_Regex = r"QC check:.*\n(.*)|Contrôle qualité:.*\n(.*)"
-            Quantity_Regex = r"(.*\n.*)MA MOU|(.*\n.*)MA DAC|(.*\n.*)MA LAR"
-            Variety_Regex = r"MA MOU.*\n(.*)|MA DAC.*\n(.*)|MA LAR.*\n(.*)"
-            KG_Regex = r"Quantity in KGs:.*\n(.*)|Quantité en KG:.*\n(.*)"
-            Grading_Regex = r"Final Grading:.*\n(.*)|Classification  finale:.*\n(.*)"
-            PFQ_score_Regex = r"Final PFQ score:.*\n(.*)|Score PFQ final:.*\n(.*)"
+            grower_receipt_regex = r"Grower receipt:.*\n(.*)|Bon de réception:.*\n(.*)"
+            grower_receipts = re.finditer(grower_receipt_regex, text)
 
-            ######################
-            #
+            item_number_regex = r"Production method.*\n.*.*\n(.*)|Méthode de Production.*\n.*.*\n(.*)"
+            item_numbers = re.finditer(item_number_regex, text)
 
-            GrowerReceipts = re.finditer(GrowerReceipt_Regex, text)
-            QCs = re.finditer(QC_Regex, text)
-            IdBlocs = re.finditer(IdBloc_Regex, text)
-            BatchNumbers = re.finditer(BatchNumber_Regex, text)
+            id_bloc_regex = r"Batch number:.*\n.*(.{8}).{2}|Numéro de Lot:.*\n.*(.{8}).{2}"
+            id_blocs = re.finditer(id_bloc_regex, text)
 
-            ItemNumbers = re.finditer(ItemNumber_Regex, text)
-            Quantities = re.finditer(Quantity_Regex, text)
-            Varieties = re.finditer(Variety_Regex, text)
+            batch_number_regex = r"Batch number:.*\n(.*)|Numéro de Lot:.*\n(.*)"
+            batch_numbers = re.finditer(batch_number_regex, text)
 
-            KGs = re.finditer(KG_Regex, text)
-            Gradings = re.finditer(Grading_Regex, text)
-            PFQ_scores = re.finditer(PFQ_score_Regex, text)
+            qc_regex = r"QC check:.*\n(.*)|Contrôle qualité:.*\n(.*)"
+            qcs = re.finditer(qc_regex, text)
 
-            ######################
-            #
+            quantity_regex = r"(.*\n.*)MA MOU|(.*\n.*)MA DAC|(.*\n.*)MA LAR"
+            quantities = re.finditer(quantity_regex, text)
+
+            variety_regex = r"MA MOU.*\n(.*)|MA DAC.*\n(.*)|MA LAR.*\n(.*)"
+            varieties = re.finditer(variety_regex, text)
+
+            kg_regex = r"Quantity in KGs:.*\n(.*)|Quantité en KG:.*\n(.*)"
+            kgs = re.finditer(kg_regex, text)
+
+            grading_regex = r"Final Grading:.*\n(.*)|Classification  finale:.*\n(.*)"
+            gradings = re.finditer(grading_regex, text)
+
+            pfq_score_regex = r"Final PFQ score:.*\n(.*)|Score PFQ final:.*\n(.*)"
+            pfq_scores = re.finditer(pfq_score_regex, text)
 
             n = 0
-
             n1 = n + n1
-            for matchNum, match in enumerate(GrowerReceipts, start=1):
-                for groupNum in range(0, len(match.groups())):
-                    groupNum = groupNum + 1
-                    # print(match.group(groupNum))
-                    if match.group(groupNum) is not None:
-                        val = str(match.group(groupNum).rstrip())
+            for match_num, match in enumerate(grower_receipts, start=1):
+                for group_num in range(0, len(match.groups())):
+                    group_num = group_num + 1
+                    # print(match.group(group_num))
+                    if match.group(group_num) is not None:
+                        val = str(match.group(group_num).rstrip())
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
                             w_sheet.write(n1 + 1, 0, val)
-                            w_sheet.write(n1 + 1, 10, Grower_val)
-                            w_sheet.write(n1 + 1, 11, Ranche_val)
+
+                            w_sheet.write(n1 + 1, 10, grower_val)
+                            w_sheet.write(n1 + 1, 11, ranch_val)
 
                 n1 += 1
 
             n2 = n + n2
-            for matchNum, match in enumerate(QCs, start=1):
-                for groupNum in range(0, len(match.groups())):
-                    groupNum = groupNum + 1
-                    # print(match.group(groupNum))
-                    if match.group(groupNum) is not None:
-                        val = match.group(groupNum).rstrip()
+            for match_num, match in enumerate(qcs, start=1):
+                for group_num in range(0, len(match.groups())):
+                    group_num = group_num + 1
+                    # print(match.group(group_num))
+                    if match.group(group_num) is not None:
+                        val = match.group(group_num).rstrip()
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
                             w_sheet.write(n2 + 1, 4, val)
                 n2 += 1
 
             n10 = n + n10
-            for matchNum, match in enumerate(BatchNumbers, start=1):
+            for match_num, match in enumerate(batch_numbers, start=1):
                 # print("111111111")
-                for groupNum in range(0, len(match.groups())):
-                    groupNum = groupNum + 1
-                    # print(match.group(groupNum))
-                    if match.group(groupNum) is not None:
-                        val = str(match.group(groupNum).rstrip())
+                for group_num in range(0, len(match.groups())):
+                    group_num = group_num + 1
+                    # print(match.group(group_num))
+                    if match.group(group_num) is not None:
+                        val = str(match.group(group_num).rstrip())
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
                             w_sheet.write(n10 + 1, 3, val)
                 n10 += 1
 
             n3 = n + n3
-            for matchNum, match in enumerate(IdBlocs, start=1):
+            for match_num, match in enumerate(id_blocs, start=1):
                 # print("111111111")
-                for groupNum in range(0, len(match.groups())):
-                    groupNum = groupNum + 1
-                    # print(match.group(groupNum))
-                    if match.group(groupNum) is not None:
-                        val = str(match.group(groupNum).rstrip())
+                for group_num in range(0, len(match.groups())):
+                    group_num = group_num + 1
+                    # print(match.group(group_num))
+                    if match.group(group_num) is not None:
+                        val = str(match.group(group_num).rstrip())
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
                             w_sheet.write(n3 + 1, 2, val)
                 n3 += 1
 
             n4 = n + n4
-            for matchNum, match in enumerate(ItemNumbers, start=1):
-                for groupNum in range(0, len(match.groups())):
-                    groupNum = groupNum + 1
-                    # print(match.group(groupNum))
-                    if match.group(groupNum) is not None:
-                        val = str(match.group(groupNum).rstrip())
+            for match_num, match in enumerate(item_numbers, start=1):
+                for group_num in range(0, len(match.groups())):
+                    group_num = group_num + 1
+                    # print(match.group(group_num))
+                    if match.group(group_num) is not None:
+                        val = str(match.group(group_num).rstrip())
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
                             w_sheet.write(n4 + 1, 1, int(val))
                 n4 += 1
 
             n5 = n + n5
-            for matchNum, match in enumerate(Quantities, start=1):
-                for groupNum in range(0, len(match.groups())):
-                    groupNum = groupNum + 1
-                    # print(match.group(groupNum))
-                    if match.group(groupNum) is not None:
-                        val = str(match.group(groupNum).rstrip().replace(',', ''))  # Fix the "," problem
+            for match_num, match in enumerate(quantities, start=1):
+                for group_num in range(0, len(match.groups())):
+                    group_num = group_num + 1
+                    # print(match.group(group_num))
+                    if match.group(group_num) is not None:
+                        val = str(match.group(group_num).rstrip().replace(',', ''))  # Fix the "," problem
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
                             w_sheet.write(n5 + 1, 5, float(val))
                 n5 += 1
 
             n6 = n + n6
-            for matchNum, match in enumerate(Varieties, start=1):
-                for groupNum in range(0, len(match.groups())):
-                    groupNum = groupNum + 1
-                    # print(match.group(groupNum))
-                    if match.group(groupNum) is not None:
-                        val = str(match.group(groupNum).rstrip())
+            for match_num, match in enumerate(varieties, start=1):
+                for group_num in range(0, len(match.groups())):
+                    group_num = group_num + 1
+                    # print(match.group(group_num))
+                    if match.group(group_num) is not None:
+                        val = str(match.group(group_num).rstrip())
                         if val is not '':
                             # print(str("---") + val + str(" 00"))
                             w_sheet.write(n6 + 1, 6, val)
-                    # w_sheet.write(n6 + 6, 5, match.group(groupNum))
+                    # w_sheet.write(n6 + 6, 5, match.group(group_num))
                 n6 += 1
 
             n7 = n + n7
-            for matchNum, match in enumerate(KGs, start=1):
-                for groupNum in range(0, len(match.groups())):
-                    groupNum = groupNum + 1
-                    # print(match.group(groupNum))
-                    if match.group(groupNum) is not None:
-                        val = str(match.group(groupNum).rstrip().replace(',', ''))  # Fix the "," problem
+            for match_num, match in enumerate(kgs, start=1):
+                for group_num in range(0, len(match.groups())):
+                    group_num = group_num + 1
+                    # print(match.group(group_num))
+                    if match.group(group_num) is not None:
+                        val = str(match.group(group_num).rstrip().replace(',', ''))  # Fix the "," problem
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
                             w_sheet.write(n7 + 1, 7, float(val))
                 n7 += 1
 
             n8 = n + n8
-            for matchNum, match in enumerate(Gradings, start=1):
-                for groupNum in range(0, len(match.groups())):
-                    groupNum = groupNum + 1
-                    # print(match.group(groupNum))
-                    if match.group(groupNum) is not None:
-                        val = str(match.group(groupNum).rstrip())
+            for match_num, match in enumerate(gradings, start=1):
+                for group_num in range(0, len(match.groups())):
+                    group_num = group_num + 1
+                    # print(match.group(group_num))
+                    if match.group(group_num) is not None:
+                        val = str(match.group(group_num).rstrip())
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
                             w_sheet.write(n8 + 1, 8, val)
                 n8 += 1
 
             n9 = n + n9
-            for matchNum, match in enumerate(PFQ_scores, start=1):
-                for groupNum in range(0, len(match.groups())):
-                    groupNum = groupNum + 1
-                    # print(match.group(groupNum))
-                    if match.group(groupNum) is not None:
-                        val = str(match.group(groupNum).rstrip())
+            for match_num, match in enumerate(pfq_scores, start=1):
+                for group_num in range(0, len(match.groups())):
+                    group_num = group_num + 1
+                    # print(match.group(group_num))
+                    if match.group(group_num) is not None:
+                        val = str(match.group(group_num).rstrip())
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
                             w_sheet.write(n9 + 1, 9, float(val))
@@ -411,20 +419,20 @@ def load_pdf():
         #######################
         # Saving the Excel File
 
-        wb.save(excelFile)
-        pdfFileObj.close()
+        wb.save(excel_file)
+        pdf_file_obj.close()
 
-        status_update("The Excel file is saved at  :\n" + str(excelFile))
+        status_update("The Excel file is saved at  :\n" + str(excel_file))
 
         show_processing_end()
-        myPDF = None
+        my_pdf = None
 
         # Enable Open Excel File Button
         Button.config(text="  Select another PDF File  ")
         Button2.config(state="normal")
-        Button2.config(command=lambda: open_excel(str(excelFile)))
+        Button2.config(command=lambda: open_excel(str(excel_file)))
 
-        # open_excel(excelFile)
+        # open_excel(excel_file)
 
     except:
         if myPDF is not "":
@@ -434,48 +442,48 @@ def load_pdf():
 ########################
 # Creating a menu
 
-menubar = Menu(window)
+menu_bar = Menu(window)
 
 close_icon = tkinter.PhotoImage(file="img\\ic_close_black_16dp.png")
 file_icon = tkinter.PhotoImage(file="img\\ic_insert_drive_file_black_18dp.png")
 help_icon = tkinter.PhotoImage(file="img\\ic_help_16pt.png")
 
 
-def myFacebook():
+def my_facebook():
     url = 'http://www.facebook.com/mounirboulwafa'
     webbrowser.open_new(url)
 
 
-filemenu = Menu(menubar, tearoff=0)
-filemenu.add_command(label=" Select a PDF File ", image=file_icon, compound=tkinter.LEFT, command=load_pdf)
-filemenu.add_separator()
-filemenu.add_command(label=" Exit", image=close_icon, compound=tkinter.LEFT, command=window.quit)
-menubar.add_cascade(label="File", menu=filemenu)
+file_menu = Menu(menu_bar, tearoff=0)
+file_menu.add_command(label=" Select a PDF File ", image=file_icon, compound=tkinter.LEFT, command=load_pdf)
+file_menu.add_separator()
+file_menu.add_command(label=" Exit", image=close_icon, compound=tkinter.LEFT, command=window.quit)
+menu_bar.add_cascade(label="File", menu=file_menu)
 
-helpmenu = Menu(menubar, tearoff=0)
-helpmenu.add_command(label=" Help", image=help_icon, compound=tkinter.LEFT, command=myFacebook)
-helpmenu.add_command(label=" Contact", underline=1, command=show_contact)
-helpmenu.add_command(label=" About", command=show_about)
-menubar.add_cascade(label="About", menu=helpmenu)
+help_menu = Menu(menu_bar, tearoff=0)
+help_menu.add_command(label=" Help", image=help_icon, compound=tkinter.LEFT, command=my_facebook)
+help_menu.add_command(label=" Contact", underline=1, command=show_contact)
+help_menu.add_command(label=" About", command=show_about)
+menu_bar.add_cascade(label="About", menu=help_menu)
 
-window.config(menu=menubar)
+window.config(menu=menu_bar)
 
 
 #######################
 # Open Excel Application After end on processing
 
 
-def open_excel(excelfile):
+def open_excel(excel_file):
     xl = Dispatch("Excel.Application")
     xl.Visible = True  # otherwise excel is hidden
 
     # newest excel does not accept forward slash in path
-    w = xl.Workbooks.Open(excelfile)
+    w = xl.Workbooks.Open(excel_file)
 
 
-def status_update(mypdf):
-    status_label.config(text=mypdf)
-    # print("7777 " + mypdf)
+def status_update(my_pdf):
+    status_label.config(text=my_pdf)
+    # print("7777 " + my_pdf)
 
 
 Button = tkinter.Button(window, text="  Select a PDF File  ", command=load_pdf)

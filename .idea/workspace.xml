@@ -204,7 +204,7 @@
       <workItem from="1572711031254" duration="149000" />
       <workItem from="1573404324463" duration="5370000" />
       <workItem from="1573422378928" duration="6076000" />
-      <workItem from="1573462694495" duration="4542000" />
+      <workItem from="1573462694495" duration="6854000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1548619103844</created>
@@ -318,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573465845940</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="add write_headers() function">
+      <created>1573467259894</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1573467259894</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,11 +381,12 @@
     <MESSAGE value="Add Grower &amp; Ranch Column 2" />
     <MESSAGE value="Remove the ABF logo from the sheet" />
     <MESSAGE value="Resizing the columns width" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resizing the columns width" />
+    <MESSAGE value="add write_headers() function" />
+    <option name="LAST_COMMIT_MESSAGE" value="add write_headers() function" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Daily_Quality_Reports_Tool$Daily_Quality_Reports_Tool.coverage" NAME="Daily Quality Reports Tool Coverage Results" MODIFIED="1573466793137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Daily_Quality_Reports_Tool$Daily_Quality_Reports_Tool_v1_3.coverage" NAME="Daily Quality Reports Tool v1.3 Coverage Results" MODIFIED="1573404710225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Daily_Quality_Reports_Tool$Daily_Quality_Reports_Tool.coverage" NAME="Daily Quality Reports Tool Coverage Results" MODIFIED="1573469496300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Daily_Quality_Reports_Tool$Daily_Quality_Reports_Tool_v1_3.coverage" NAME="Daily Quality Reports Tool v1.3 Coverage Results" MODIFIED="1573469452784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Daily_Quality_Reports_Tool$Daily_Quality_Reports_Tool_vF.coverage" NAME="Daily Quality Reports Tool vF Coverage Results" MODIFIED="1568324557885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Daily_Quality_Reports_Tool$Daily_Quality_Reports_Tool_v1_2.coverage" NAME="Daily Quality Reports Tool v1.2 Coverage Results" MODIFIED="1568324528375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
