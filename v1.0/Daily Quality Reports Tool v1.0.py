@@ -206,53 +206,52 @@ def load_pdf():
 
         for x in range(0, pages):
             # print("\n--------- Page " + str(x + 1) + " ----------")
-            pageObj = pdfReader.getPage(x)
-            text = pageObj.extractText()
+            page_obj = pdfReader.getPage(x)
+            text = page_obj.extractText()
             # print(text)
 
             ######################
             #  RegExpressions
 
-            Grower_Regex = r"Grower:.*\n(\w+)|Producteur:.*\n(\w+)"
-            Ranch_Regex = r"Ranch:.*\n(\w+)|Ferme:.*\n(\w+)"
+            grower_regex = r"Grower:.*\n(\w+)|Producteur:.*\n(\w+)"
+            ranch_regex = r"Ranch:.*\n(\w+)|Ferme:.*\n(\w+)"
 
-            GrowerReceipt_Regex = r"Grower receipt:.*\n(.*)|Bon de réception:.*\n(.*)"
-            # GrowerReceipt_Regex = r"Grower receipt:.*\n(.*)|(.*\n.*)Date de reception"
-            QC_Regex = r"QC check:.*\n(.*)|Contrôle qualité:.*\n(.*)"
-            BatchNumber_Regex = r"Batch number:.*\n.*(.{8}).{2}|Numéro de Lot:.*\n.*(.{8}).{2}"
+            grower_receipt_regex = r"Grower receipt:.*\n(.*)|Bon de réception:.*\n(.*)"
+            qc_regex = r"QC check:.*\n(.*)|Contrôle qualité:.*\n(.*)"
+            batch_number_regex = r"Batch number:.*\n.*(.{8}).{2}|Numéro de Lot:.*\n.*(.{8}).{2}"
 
-            ItemNumber_Regex = r"Production method.*\n.*.*\n(.*)|Méthode de Production.*\n.*.*\n(.*)"
-            Quantity_Regex = r"(.*\n.*)MA MOU|(.*\n.*)MA DAC"
-            Variety_Regex = r"MA MOU.*\n(.*)|MA DAC.*\n(.*)"
+            item_number_regex = r"Production method.*\n.*.*\n(.*)|Méthode de Production.*\n.*.*\n(.*)"
+            quantity_regex = r"(.*\n.*)MA MOU|(.*\n.*)MA DAC"
+            variety_regex = r"MA MOU.*\n(.*)|MA DAC.*\n(.*)"
 
-            KG_Regex = r"Quantity in KGs:.*\n(.*)|Quantité en KG:.*\n(.*)"
-            Grading_Regex = r"Final Grading:.*\n(.*)|Classification  finale:.*\n(.*)"
-            PFQ_score_Regex = r"Final PFQ score:.*\n(.*)|Score PFQ final:.*\n(.*)"
+            kg_regex = r"Quantity in KGs:.*\n(.*)|Quantité en KG:.*\n(.*)"
+            grading_regex = r"Final Grading:.*\n(.*)|Classification  finale:.*\n(.*)"
+            pfq_score_regex = r"Final PFQ score:.*\n(.*)|Score PFQ final:.*\n(.*)"
 
             ######################
             #
 
-            Growers = re.finditer(Grower_Regex, text)
-            Ranches = re.finditer(Ranch_Regex, text)
+            growers = re.finditer(grower_regex, text)
+            ranches = re.finditer(ranch_regex, text)
 
-            GrowerReceipts = re.finditer(GrowerReceipt_Regex, text)
-            QCs = re.finditer(QC_Regex, text)
-            BatchNumbers = re.finditer(BatchNumber_Regex, text)
+            grower_receipts = re.finditer(grower_receipt_regex, text)
+            qcs = re.finditer(qc_regex, text)
+            batch_numbers = re.finditer(batch_number_regex, text)
             # print(BatchNumbers)
 
-            ItemNumbers = re.finditer(ItemNumber_Regex, text)
-            Quantities = re.finditer(Quantity_Regex, text)
-            Varieties = re.finditer(Variety_Regex, text)
+            item_numbers = re.finditer(item_number_regex, text)
+            quantities = re.finditer(quantity_regex, text)
+            varieties = re.finditer(variety_regex, text)
 
-            KGs = re.finditer(KG_Regex, text)
-            Gradings = re.finditer(Grading_Regex, text)
-            PFQ_scores = re.finditer(PFQ_score_Regex, text)
+            kgs = re.finditer(kg_regex, text)
+            gradings = re.finditer(grading_regex, text)
+            pfq_scores = re.finditer(pfq_score_regex, text)
 
             ######################
             #
 
             n = 0
-            for matchNum, match in enumerate(Growers, start=1):
+            for matchNum, match in enumerate(growers, start=1):
                 for groupNum in range(0, len(match.groups())):
                     groupNum = groupNum + 1
                     # print(match.group(groupNum))
@@ -263,7 +262,7 @@ def load_pdf():
                             # print(str("---") + val + str(" 00"))
                             w_sheet.write(3, 3, int(val))
 
-            for matchNum, match in enumerate(Ranches, start=1):
+            for matchNum, match in enumerate(ranches, start=1):
                 for groupNum in range(0, len(match.groups())):
                     groupNum = groupNum + 1
                     # print(match.group(groupNum))
@@ -275,7 +274,7 @@ def load_pdf():
                             w_sheet.write(3, 4, int(val))
 
             n1 = n + n1
-            for matchNum, match in enumerate(GrowerReceipts, start=1):
+            for matchNum, match in enumerate(grower_receipts, start=1):
                 for groupNum in range(0, len(match.groups())):
                     groupNum = groupNum + 1
                     # print(match.group(groupNum))
@@ -287,7 +286,7 @@ def load_pdf():
                 n1 += 1
 
             n2 = n + n2
-            for matchNum, match in enumerate(QCs, start=1):
+            for matchNum, match in enumerate(qcs, start=1):
                 for groupNum in range(0, len(match.groups())):
                     groupNum = groupNum + 1
                     # print(match.group(groupNum))
@@ -299,7 +298,7 @@ def load_pdf():
                 n2 += 1
 
             n3 = n + n3
-            for matchNum, match in enumerate(BatchNumbers, start=1):
+            for matchNum, match in enumerate(batch_numbers, start=1):
                 # print("111111111")
                 for groupNum in range(0, len(match.groups())):
                     groupNum = groupNum + 1
@@ -312,7 +311,7 @@ def load_pdf():
                 n3 += 1
 
             n4 = n + n4
-            for matchNum, match in enumerate(ItemNumbers, start=1):
+            for matchNum, match in enumerate(item_numbers, start=1):
                 for groupNum in range(0, len(match.groups())):
                     groupNum = groupNum + 1
                     # print(match.group(groupNum))
@@ -324,7 +323,7 @@ def load_pdf():
                 n4 += 1
 
             n5 = n + n5
-            for matchNum, match in enumerate(Quantities, start=1):
+            for matchNum, match in enumerate(quantities, start=1):
                 for groupNum in range(0, len(match.groups())):
                     groupNum = groupNum + 1
                     # print(match.group(groupNum))
@@ -336,7 +335,7 @@ def load_pdf():
                 n5 += 1
 
             n6 = n + n6
-            for matchNum, match in enumerate(Varieties, start=1):
+            for matchNum, match in enumerate(varieties, start=1):
                 for groupNum in range(0, len(match.groups())):
                     groupNum = groupNum + 1
                     # print(match.group(groupNum))
@@ -349,7 +348,7 @@ def load_pdf():
                 n6 += 1
 
             n7 = n + n7
-            for matchNum, match in enumerate(KGs, start=1):
+            for matchNum, match in enumerate(kgs, start=1):
                 for groupNum in range(0, len(match.groups())):
                     groupNum = groupNum + 1
                     # print(match.group(groupNum))
@@ -361,7 +360,7 @@ def load_pdf():
                 n7 += 1
 
             n8 = n + n8
-            for matchNum, match in enumerate(Gradings, start=1):
+            for matchNum, match in enumerate(gradings, start=1):
                 for groupNum in range(0, len(match.groups())):
                     groupNum = groupNum + 1
                     # print(match.group(groupNum))
@@ -373,7 +372,7 @@ def load_pdf():
                 n8 += 1
 
             n9 = n + n9
-            for matchNum, match in enumerate(PFQ_scores, start=1):
+            for matchNum, match in enumerate(pfq_scores, start=1):
                 for groupNum in range(0, len(match.groups())):
                     groupNum = groupNum + 1
                     # print(match.group(groupNum))

@@ -11,6 +11,7 @@ from tkinter import filedialog
 from tkinter import messagebox
 from tkinter import *
 from os import path
+import datetime
 
 #######################
 # Open file Dialog to choose the PDF Document
@@ -54,7 +55,7 @@ def show_about():
     win.geometry("400x200")
     win.resizable(0, 0)
 
-    title = tkinter.Label(win, text="ATLAS BERRY FARMS\nDaily Quality Reports Tool v1.2",
+    title = tkinter.Label(win, text="ATLAS BERRY FARMS\nDaily Quality Reports Tool v1.5",
                           fg="chartreuse4", font="Helvetica 12 bold")
     title.pack(ipadx=80, ipady=20, fill='both')
 
@@ -224,14 +225,20 @@ def load_pdf():
         Growers = re.finditer(Grower_Regex, pageOne)
         Ranches = re.finditer(Ranch_Regex, pageOne)
 
-        # for match in Growers:
-        #     Growers_val = match.group(1)
-        #
-        # for match in Ranches:
-        #     Ranches_val = match.group(1)
-        #
-        # print(Growers_val)
-        # print(Ranches_val)
+        for matchNum, match in enumerate(Growers, start=1):
+            for groupNum in range(0, len(match.groups())):
+                groupNum = groupNum + 1
+                if match.group(groupNum) is not None:
+                    Grower_val = int(match.group(groupNum))
+
+        for matchNum, match in enumerate(Ranches, start=1):
+            for groupNum in range(0, len(match.groups())):
+                groupNum = groupNum + 1
+                if match.group(groupNum) is not None:
+                    Ranche_val = int(match.group(groupNum))
+
+        # print(Grower_val)
+        # print(Ranche_val)
 
         for x in range(0, pages):
             # print("\n--------- Page " + str(x + 1) + " ----------")
@@ -284,9 +291,9 @@ def load_pdf():
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
                             w_sheet.write(n1 + 6, 0, val)
+                            w_sheet.write(n1 + 6, 10, Grower_val)
+                            w_sheet.write(n1 + 6, 11, Ranche_val)
 
-                            w_sheet.write(n1 + 6, 10, int(Growers_val))
-                            w_sheet.write(n1 + 6, 11, int(Ranches_val))
                 n1 += 1
 
             n2 = n + n2
@@ -377,6 +384,8 @@ def load_pdf():
                             # print(str("---") + val + str(" 00"))
                             w_sheet.write(n7 + 6, 7, float(val))
                 n7 += 1
+
+
 
             n8 = n + n8
             for matchNum, match in enumerate(Gradings, start=1):
