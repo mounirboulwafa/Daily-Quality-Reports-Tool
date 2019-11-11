@@ -48,6 +48,7 @@ def show_contact():
     win.wm_attributes("-topmost", 1)
     win.grab_set()
 
+
 #######################
 # Open about window
 
@@ -98,13 +99,60 @@ space = tkinter.Label(window, height=2, ).pack()
 myPDF = None
 excelFile = ""
 
+#######################
+# styles
+
+style1 = xlwt.easyxf(
+    'pattern: pattern solid, fore_colour green;'
+    'font: colour white,height 260, bold True;'
+    'align: horiz center')
+
+style = xlwt.easyxf(
+    'pattern: pattern solid, fore_colour green;'
+    'font: colour white,height 220, bold True;'
+    'align: horiz center')
+
 
 def delete_worksheet(w_sheet):
-    w_sheet.write(3, 3, "")
-    w_sheet.write(4, 3, "")
-    for x in range(0, 9):
-        for y in range(6, 60):
+    # w_sheet.write(3, 3, "")
+    # w_sheet.write(4, 3, "")
+    for x in range(0, 11):
+        for y in range(1, 100):
             w_sheet.write(y, x, "")
+
+
+def write_headers(w_sheet):
+    # w_sheet.write(0, 3, 'Daily Quality Report', style)
+    # w_sheet.write_merge(0, 0, 3, 4, 'Daily Quality Report', style1)
+
+    w_sheet.write(0, 0, 'Grower receipt', style)
+    w_sheet.write(0, 1, 'Item number', style)
+    w_sheet.write(0, 2, 'Id Bloc', style)
+    w_sheet.write(0, 3, 'Batch number', style)
+    w_sheet.write(0, 4, 'Arrival date / QC check', style)
+    w_sheet.write(0, 5, 'Quantity', style)
+    w_sheet.write(0, 6, 'Variety', style)
+    w_sheet.write(0, 7, 'Quantity in KGs', style)
+    w_sheet.write(0, 8, 'Final Grading', style)
+    w_sheet.write(0, 9, 'Final PFQ score', style)
+    w_sheet.write(0, 10, 'Grower', style)
+    w_sheet.write(0, 11, 'Ranch', style)
+
+    #######################
+    # Styling ( Column width )
+
+    w_sheet.col(0).width = 4200
+    w_sheet.col(1).width = 4000
+    w_sheet.col(2).width = 3000
+    w_sheet.col(3).width = 6000
+    w_sheet.col(4).width = 6400
+    w_sheet.col(5).width = 3400
+    w_sheet.col(6).width = 3300
+    w_sheet.col(7).width = 4500
+    w_sheet.col(8).width = 4000
+    w_sheet.col(9).width = 4800
+    w_sheet.col(10).width = 3000
+    w_sheet.col(11).width = 3000
 
 
 def load_pdf():
@@ -149,50 +197,7 @@ def load_pdf():
             wb = Workbook()
             w_sheet = wb.add_sheet('Daily Quality Report')
 
-            style1 = xlwt.easyxf(
-                'pattern: pattern solid, fore_colour green;'
-                'font: colour white,height 260, bold True;'
-                'align: horiz center')
-
-            style = xlwt.easyxf(
-                'pattern: pattern solid, fore_colour green;'
-                'font: colour white,height 220, bold True;'
-                'align: horiz center')
-
-            #######################
-            # Writing titles
-
-            # w_sheet.write(0, 3, 'Daily Quality Report', style)
-            w_sheet.write_merge(0, 0, 3, 4, 'Daily Quality Report', style1)
-            w_sheet.write(5, 0, 'Grower receipt', style)
-            w_sheet.write(5, 1, 'Item number', style)
-            w_sheet.write(5, 2, 'Id Bloc', style)
-            w_sheet.write(5, 3, 'Batch number', style)
-            w_sheet.write(5, 4, 'Arrival date / QC check', style)
-            w_sheet.write(5, 5, 'Quantity', style)
-            w_sheet.write(5, 6, 'Variety', style)
-            w_sheet.write(5, 7, 'Quantity in KGs', style)
-            w_sheet.write(5, 8, 'Final Grading', style)
-            w_sheet.write(5, 9, 'Final PFQ score', style)
-            w_sheet.write(5, 10, 'Grower', style)
-            w_sheet.write(5, 11, 'Ranch', style)
-
-            #######################
-            # Styling ( Column width )
-
-            w_sheet.col(0).width = 4200
-            w_sheet.col(1).width = 4000
-            w_sheet.col(2).width = 3000
-            w_sheet.col(3).width = 6000
-            w_sheet.col(4).width = 6400
-            w_sheet.col(5).width = 3400
-            w_sheet.col(6).width = 3300
-            w_sheet.col(7).width = 4500
-            w_sheet.col(8).width = 4000
-            w_sheet.col(9).width = 4800
-            w_sheet.col(10).width = 3000
-            w_sheet.col(11).width = 3000
-
+            write_headers(w_sheet)
 
             wb.save(excelFile)
 
@@ -202,16 +207,7 @@ def load_pdf():
         # Inserting the logo
         # w_sheet.insert_bitmap('img\\logo.bmp', 0, 0, 2, 2)
 
-        n1 = 0
-        n2 = 0
-        n3 = 0
-        n4 = 0
-        n5 = 0
-        n6 = 0
-        n7 = 0
-        n8 = 0
-        n9 = 0
-        n10 = 0
+        n1, n2, n3, n4, n5, n6, n7, n8, n9, n10 = 0
 
         # Reading GrowerReceipt & Ranche
 
@@ -290,9 +286,9 @@ def load_pdf():
                         val = str(match.group(groupNum).rstrip())
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
-                            w_sheet.write(n1 + 6, 0, val)
-                            w_sheet.write(n1 + 6, 10, Grower_val)
-                            w_sheet.write(n1 + 6, 11, Ranche_val)
+                            w_sheet.write(n1 + 1, 0, val)
+                            w_sheet.write(n1 + 1, 10, Grower_val)
+                            w_sheet.write(n1 + 1, 11, Ranche_val)
 
                 n1 += 1
 
@@ -305,9 +301,8 @@ def load_pdf():
                         val = match.group(groupNum).rstrip()
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
-                            w_sheet.write(n2 + 6, 4, val)
+                            w_sheet.write(n2 + 1, 4, val)
                 n2 += 1
-
 
             n10 = n + n10
             for matchNum, match in enumerate(BatchNumbers, start=1):
@@ -319,9 +314,8 @@ def load_pdf():
                         val = str(match.group(groupNum).rstrip())
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
-                            w_sheet.write(n10 + 6, 3, val)
+                            w_sheet.write(n10 + 1, 3, val)
                 n10 += 1
-
 
             n3 = n + n3
             for matchNum, match in enumerate(IdBlocs, start=1):
@@ -333,7 +327,7 @@ def load_pdf():
                         val = str(match.group(groupNum).rstrip())
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
-                            w_sheet.write(n3 + 6, 2, val)
+                            w_sheet.write(n3 + 1, 2, val)
                 n3 += 1
 
             n4 = n + n4
@@ -345,7 +339,7 @@ def load_pdf():
                         val = str(match.group(groupNum).rstrip())
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
-                            w_sheet.write(n4 + 6, 1, int(val))
+                            w_sheet.write(n4 + 1, 1, int(val))
                 n4 += 1
 
             n5 = n + n5
@@ -357,7 +351,7 @@ def load_pdf():
                         val = str(match.group(groupNum).rstrip().replace(',', ''))  # Fix the "," problem
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
-                            w_sheet.write(n5 + 6, 5, float(val))
+                            w_sheet.write(n5 + 1, 5, float(val))
                 n5 += 1
 
             n6 = n + n6
@@ -369,7 +363,7 @@ def load_pdf():
                         val = str(match.group(groupNum).rstrip())
                         if val is not '':
                             # print(str("---") + val + str(" 00"))
-                            w_sheet.write(n6 + 6, 6, val)
+                            w_sheet.write(n6 + 1, 6, val)
                     # w_sheet.write(n6 + 6, 5, match.group(groupNum))
                 n6 += 1
 
@@ -382,10 +376,8 @@ def load_pdf():
                         val = str(match.group(groupNum).rstrip().replace(',', ''))  # Fix the "," problem
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
-                            w_sheet.write(n7 + 6, 7, float(val))
+                            w_sheet.write(n7 + 1, 7, float(val))
                 n7 += 1
-
-
 
             n8 = n + n8
             for matchNum, match in enumerate(Gradings, start=1):
@@ -396,7 +388,7 @@ def load_pdf():
                         val = str(match.group(groupNum).rstrip())
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
-                            w_sheet.write(n8 + 6, 8, val)
+                            w_sheet.write(n8 + 1, 8, val)
                 n8 += 1
 
             n9 = n + n9
@@ -408,7 +400,7 @@ def load_pdf():
                         val = str(match.group(groupNum).rstrip())
                         if val is not None:
                             # print(str("---") + val + str(" 00"))
-                            w_sheet.write(n9 + 6, 9, float(val))
+                            w_sheet.write(n9 + 1, 9, float(val))
                 n9 += 1
 
             n += 2
