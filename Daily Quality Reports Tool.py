@@ -24,7 +24,7 @@ window.resizable(0, 0)
 
 
 #######################
-# Open about window
+# Open contact window
 
 def show_contact():
     win = Toplevel(window)
@@ -48,6 +48,8 @@ def show_contact():
     win.wm_attributes("-topmost", 1)
     win.grab_set()
 
+#######################
+# Open about window
 
 def show_about():
     win = Toplevel(window)
@@ -178,7 +180,7 @@ def load_pdf():
             #######################
             # Styling ( Column width )
 
-            w_sheet.col(0).width = 5000
+            w_sheet.col(0).width = 4500
             w_sheet.col(1).width = 4000
             w_sheet.col(2).width = 4000
             w_sheet.col(3).width = 6400
@@ -198,7 +200,7 @@ def load_pdf():
         # start processing
 
         # Inserting the logo
-        w_sheet.insert_bitmap('img\\logo.bmp', 0, 0, 2, 2)
+        # w_sheet.insert_bitmap('img\\logo.bmp', 0, 0, 2, 2)
 
         n1 = 0
         n2 = 0
@@ -210,8 +212,6 @@ def load_pdf():
         n8 = 0
         n9 = 0
         n10 = 0
-        n11 = 0
-        n12 = 0
 
         # Reading GrowerReceipt & Ranche
 
